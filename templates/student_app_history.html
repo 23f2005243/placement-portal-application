@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Students' Application History</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<style>
+    body {
+            background-color: rgb(232, 224, 238);
+        }
+    .navbar, .navbar-brand, .nav-link {
+        color: white !important;
+        background-color: rgb(152, 101, 152)
+    }
+</style></head>
+<body>
+    <div id="main">
+        <div id="canvas" class="overflow-auto">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Placement Portal Application</a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/student/{{this_user.uid}}">Go Back</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <h1 class="heading">Student Application History</h1><br>
+            <h5 class="heading"><b>Student Name:</b> {{this_student.sname}}</h5>
+            <h5 class="heading"><b>Student Id:</b> {{this_student.sid}}</h5>
+            <h5 class="heading"><b>Department:</b> {{this_student.sdepartment}}</h5><br>
+            <div id="content">
+                <h3 class="headings my-3">Application History</h3>
+                <div id="cards" class="table" style="max-height:200px;overflow-y: scroll;">
+                    <table class="table border">
+                        <thead>
+                            <tr>
+                            <th scope="col" class="text-center">Drive Id</th>
+                            <th scope="col" class="text-center">Drive Name</th>
+                            <th scope="col" class="text-center">Company Name</th>
+                            <th scope="col" class="text-center">Interview</th>
+                            <th scope="col" class="text-center">Job Title</th>
+                            <th scope="col" class="text-center">Results</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for app in all_applications %}
+                            <tr>
+                            <th scope="row"  class="text-center">{{app.did}}</th>
+                            <td class="text-center">{{app.drive.dname}}</td>
+                            <td class="text-center">{{app.drive.company.cname}}</td>
+                            <td class="text-center">{{app.type}}</td>
+                            <td class="text-center">{{app.drive.job_title}}</td>
+                            <td class="text-center">{{app.status}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>     
+            </div>
+        </div>
+    </div>
+</body>
+</html>

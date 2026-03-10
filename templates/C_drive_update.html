@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Closed Drive Update</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+    .card{
+        width: 100%;
+        margin: auto;
+        border: 1px solid black;
+        margin-top: 100px;
+        font-size: 20px;
+    }
+    body {
+            background-color: rgb(232, 224, 238);
+        }
+    .navbar, .navbar-brand, .nav-link {
+        color: white !important;
+        background-color: rgb(152, 101, 152)
+    }
+</style>
+</head>
+<body>
+    <div id="main">
+        <div id="canvas">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Placement Portal Application</a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/company/{{this_company.cid}}">Go Back</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="info">
+                <div class="card border-light mb-3" style="max-width: 40rem;">
+                <div class="card-header"><b>{{this_drive.dname}}</b></div>
+                <div class="card-body">
+                    <h5 class="card-title"><b>Company:</b> {{this_company.cname}}</h5><br>
+                    <p class="card-text">
+                        <b>Job Title:</b> {{this_drive.job_title}}<br><br>
+                        <b>Job Description:</b> {{this_drive.job_description}}<br><br>
+                        <b>Package (CTC):</b> {{this_drive.salary}}<br><br>
+                        <b>Location:</b> {{this_drive.location}}<br><br>
+                        <b>Application Deadline:</b> {{this_drive.application_deadline}}<br><br>
+                    </p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="/edit_drive/{{this_drive.did}}" class="btn btn-outline-warning mx-2">Edit Drive</a>
+                    <a href="/open_drive/{{this_drive.did}}" class="btn btn-outline-success mx-2">Open Drive</a>
+                    <a href="/view_closed_drive_history/{{this_drive.did}}" class="btn btn-outline-info mx-2">View History</a>
+                </div><br>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

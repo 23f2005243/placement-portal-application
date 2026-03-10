@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Application</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    .card{
+        width: 100%;
+        margin: auto;
+        border: 1px solid black;
+        margin-top: 80px;
+        font-size: 20px;
+    }
+    body {
+            background-color: rgb(232, 224, 238);
+        }
+    .navbar, .navbar-brand, .nav-link {
+        color: white !important;
+        background-color: rgb(152, 101, 152)
+    }
+</style>
+<body>
+    <div id="main">
+        <div id="canvas">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Placement Portal Application</a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/view_upcoming_drive/{{this_company.cid}}/{{this_drive.did}}">Go Back</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="info">
+                <div class="card border-light mb-3" style="max-width: 30rem;">
+                <div class="card-header">Student Application</div>
+                <div class="card-body">
+                    <h5 class="card-title"><b>Student Name:</b> {{this_student.sname}}</h5><br>
+                    <p class="card-text">
+                        <b>Department:</b> {{this_student.sdepartment}}<br><br>
+                        <b>Drive:</b> {{this_drive.dname}}<br><br>
+                        <b>Job Title:</b> {{this_drive.job_title}}<br><br>
+                        <a href="{{this_application.resume}}" target="_blank" class="btn btn-outline-primary mx-2">View Resume</a>
+                    </p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    
+                    <form action="/update_selection_status/{{this_drive.did}}/{{this_student.sid}}" method="POST">
+                    <select class="form-select my-2" aria-label="Default select example" name="result">
+                        <option value="Shortlisted">Shortlisted</option>
+                        <option value="Selected">Selected</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                    <input type="submit" class="btn btn-outline-success" value="Update Status">
+                    </form>
+                </div><br>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

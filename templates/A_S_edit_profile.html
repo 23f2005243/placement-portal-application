@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Edit Profile</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        #form-body{
+            height: auto;
+            width: 700px;
+            margin-top: 50px ;
+        }
+        body {
+            background-color: rgb(232, 224, 238);
+        }
+    .navbar, .navbar-brand, .nav-link {
+        color: white !important;
+        background-color: rgb(152, 101, 152)
+    }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="canvas" class="overflow-auto">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Placement Portal Application</a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/admin/1">Go Back</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="form-body">
+                <h1 class="heading">Edit Profile</h1>
+                <form action="/A_S_edit/{{this_user.uid}}" method="post">
+                    <div class="mb-3">
+                    <label for="uname" class="form-label">Student Username</label>
+                    <input class="form-control" type="text" value="{{this_user.username}}" aria-label="Disabled input example" disabled readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Student Name</label>
+                    <input type="text" class="form-control" value="{{exist_user.sname}}" aria-label="Disabled input example" disabled readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="contact" class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" value="{{exist_user.contact}}" aria-label="Disabled input example" disabled readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="dept" class="form-label">Department</label>
+                    <input type="text" class="form-control" id="dept" name="department">
+                </div>
+                <div class="mb-3">
+                    <label for="gpa" class="form-label">GPA (Out of 10)</label>
+                    <input type="number" step="0.01" class="form-control" id="gpa" name="gpa">
+                </div>
+                <div class="mb-3">
+                    <label for="yog" class="form-label">Year of Graduation</label>
+                    <input type="number" class="form-control" id="yog" name="year_of_graduation">
+                </div>
+                <div class="text-end">
+                    <input type="submit" class="btn btn-outline-success" value="Save">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
